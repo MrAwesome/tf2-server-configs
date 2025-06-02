@@ -8,6 +8,6 @@ cd "$(dirname "$0")"
 mkdir -p /srv/map_cache/maps
 
 for mapdir in /root/tf2-*/tf/maps/; do
-    rsync -a "$mapdir"/ /srv/map_cache/maps/
+    rsync -avh --progress "$mapdir"/ /srv/map_cache/maps/
 done
 
