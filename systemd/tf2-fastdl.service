@@ -1,0 +1,20 @@
+[Unit]
+Description=FastDL for TF2
+After=network.target
+
+[Service]
+Type=simple
+WorkingDirectory=/srv/map_cache/
+ExecStart=/usr/bin/python3 -m http.server 8000 --bind 0.0.0.0
+User=www-data
+Group=www-data
+ProtectSystem=full
+ProtectHome=true
+NoNewPrivileges=true
+PrivateTmp=true
+PrivateDevices=true
+CapabilityBoundingSet=
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target

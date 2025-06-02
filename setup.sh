@@ -8,3 +8,6 @@ cd "$(dirname "$0")"
 mkdir -p /srv/map_cache/maps
 
 
+
+# [] place services/timer
+# [] enable services

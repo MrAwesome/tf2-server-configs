@@ -1,0 +1,6 @@
+[Unit]
+Description=Daily TF2 server reboot
+
+[Service]
+Type=oneshot
+ExecStart=/bin/bash /root/restart_server.sh
