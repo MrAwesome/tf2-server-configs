@@ -1,0 +1,11 @@
+[Unit]
+Description=TF2 daily server restart (dodgeball)
+
+[Timer]
+OnCalendar=*-*-* 05:00:00 UTC
+OnBootSec=0
+Persistent=true
+Unit=tf2-dedicated@tf2-dodgeball
+
+[Install]
+WantedBy=timers.target

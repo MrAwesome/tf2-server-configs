@@ -1,0 +1,11 @@
+[Unit]
+Description=TF2 daily server restart (community)
+
+[Timer]
+OnCalendar=*-*-* 06:00:00 UTC
+OnBootSec=0
+Persistent=true
+Unit=tf2-dedicated@tf2-community
+
+[Install]
+WantedBy=timers.target

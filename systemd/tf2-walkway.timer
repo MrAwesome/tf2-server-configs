@@ -1,9 +1,11 @@
 [Unit]
-Description=TF2 daily server restart
+Description=TF2 daily server restart (walkway)
 
 [Timer]
 OnCalendar=*-*-* 04:00:00 UTC
+OnBootSec=1h
 Persistent=true
+Unit=tf2-dedicated@tf2-walkway
 
 [Install]
 WantedBy=timers.target

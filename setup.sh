@@ -3,9 +3,16 @@
 
 set -euo pipefail
 
-cd "$(dirname "$0")"
+thisdir="$(dirname "$0")"
+cd "$thisdir"
 
 mkdir -p /srv/map_cache/maps
+
+pushd systemd
+for service in *; do
+	ln -s "$thisdir"/systemd/"$service" /etc/systemd/system/
+done
+
 
 
 
