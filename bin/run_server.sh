@@ -1,0 +1,9 @@
+#!/bin/bash
+
+cd /root/docker
+
+if [[ -z "$1" ]]; then
+	docker-compose up -d
+else
+	docker-compose up -d "$1"
+fi
