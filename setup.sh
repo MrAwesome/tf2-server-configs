@@ -3,18 +3,23 @@
 
 set -euo pipefail
 
-thisdir="$(dirname "$0")"
+thisdir="$(realpath "$(dirname "$0")")"
 cd "$thisdir"
 
 mkdir -p /srv/map_cache/maps
 
 pushd systemd
 for service in *; do
-	ln -s "$thisdir"/systemd/"$service" /etc/systemd/system/
+	echo "$service"
+	cp "$thisdir"/systemd/"$service" /etc/systemd/system/
 done
 
+systemctl daemon-reload
 
-
+systemctl enable --now tf2-fastdl.service
+systemctl enable tf2-walkway.timer
+systemctl enable tf2-community.timer
+systemctl enable tf2-dodgeball.timer
 
 # [] place services/timer
 # [] enable services
