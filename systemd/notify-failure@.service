@@ -3,4 +3,4 @@ Description=Notify that %i hit start limit
 
 [Service]
 Type=oneshot
-ExecStart="$HOME"/bin/notify-failure.sh %i
+ExecStart=%h/bin/notify-failure.sh %i
