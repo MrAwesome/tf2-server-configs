@@ -16,11 +16,7 @@ mkdir -p /root/bin
 
 cp bin/* /root/bin/
 
-pushd systemd
-for service in *; do
-	echo "$service"
-	cp "$thisdir"/systemd/"$service" /etc/systemd/system/
-done
+rsync -aAXvh "$thisdir"/systemd/ /etc/systemd/system/
 
 systemctl daemon-reload
 

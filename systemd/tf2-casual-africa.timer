@@ -1,0 +1,22 @@
+[Unit]
+Description=Timer: TF2 Valve Causual Africa Notifier (5m during peak, 20m otherwise)
+
+[Timer]
+# Peak (every 5 minutes)
+OnCalendar=Mon..Fri 15:00..23:59/5
+OnCalendar=Sat 11:00..23:59/5
+OnCalendar=Sun 00:00..02:59/5
+OnCalendar=Sun 11:00..23:59/5
+OnCalendar=Mon 00:00..00:59/5
+
+# Off-peak (every 20 minutes) — covers all other times
+OnCalendar=Mon 01:00..14:59/20
+OnCalendar=Tue..Fri 00:00..14:59/20
+OnCalendar=Sat 00:00..10:59/20
+OnCalendar=Sun 03:00..10:59/20
+
+Persistent=true
+AccuracySec=1s
+
+[Install]
+WantedBy=timers.target

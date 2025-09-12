@@ -1,0 +1,6 @@
+[Unit]
+Description=TF2 Valve Causual Africa Notifier (5m during peak, 20m otherwise)
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/python3 "$HOME/bin/tf2-casual-africa.py"
