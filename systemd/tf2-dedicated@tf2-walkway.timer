@@ -5,7 +5,7 @@ Description=TF2 daily server restart (walkway)
 OnCalendar=*-*-* 04:00:00 UTC
 OnBootSec=1h
 Persistent=true
-Unit=tf2-dedicated@tf2-walkway
+Unit=tf2-dedicated@tf2-walkway.service
 
 [Install]
 WantedBy=timers.target
