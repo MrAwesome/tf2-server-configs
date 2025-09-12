@@ -20,7 +20,11 @@ rsync -aAXvh "$thisdir"/systemd/ /etc/systemd/system/
 
 systemctl daemon-reload
 
+pushd systemd
+
 systemctl enable --now tf2-fastdl.service
 for timer in *.timer; do
 	systemctl enable "$timer"
 done
+
+popd
