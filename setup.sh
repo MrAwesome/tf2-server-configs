@@ -14,10 +14,8 @@ cd "$thisdir"
 mkdir -p /srv/map_cache/maps
 mkdir -p /root/bin
 
-cp bin/* /root/bin/
-
+rsync -aAXvh bin/ /root/bin/
 rsync -aAXvh "$thisdir"/systemd/ /etc/systemd/system/
-
 systemctl daemon-reload
 
 pushd systemd

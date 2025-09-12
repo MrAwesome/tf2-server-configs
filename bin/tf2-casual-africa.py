@@ -2,6 +2,7 @@
 # Updates the name of a given server to display the current number of players on Valve Casual in the Africa region.
 # Intended to be run as a systemd oneshot service on a timer using tf2-casual-africa.{service,timer}
 
+import shutil
 import json
 import time
 import sys
@@ -16,6 +17,7 @@ RCON_ADDRESS = "localhost:27016"
 RCON_PASSWORD = (
     Path("~/.tf2_rcon_password").expanduser().read_text(encoding="utf-8").strip()
 )
+RCON_COMMAND = shutil.which("rcon") or str(Path.home() / "bin" / "rcon")
 STEAM_API_KEY = (
     Path("~/.steam_api_key").expanduser().read_text(encoding="utf-8").strip()
 )
@@ -113,7 +115,7 @@ def main():
     try:
         subprocess.run(
             [
-                "rcon",
+                RCON_COMMAND,
                 "--address",
                 RCON_ADDRESS,
                 "--password",
