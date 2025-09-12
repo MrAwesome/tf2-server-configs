@@ -31,6 +31,8 @@ URL = f"https://api.steampowered.com/IGameServersService/GetServerList/v1/?filte
 # We loop this using systemd, but if you don't want to set that up, you can use this and _loop below:
 LOOP_DELAY_MIN = 5
 
+INFO_FILE = str(Path.home() / "tf2_africa_info.csv")
+
 
 def fetch_json(url):
     req = Request(url, headers={"User-Agent": "python-urllib/3"})
@@ -84,25 +86,21 @@ def main():
     total_players = 0
     total_servers = 0
     server_info_list = []
-    for server in filtered[:5]:
+    maps_slash_playercounts = []
+    for server in filtered:
         num_players = server.get("players") or 0
-        gametype = (server.get("map") or "").split("_", 1)[0]
-        gamestring = f"({num_players}/{gametype})"
-        server_info_list.append(gamestring)
+        current_map = server.get("map") or "unknown"
+        maps_slash_playercounts.append(f"{current_map}:{num_players}")
         total_players += num_players
         total_servers += 1
 
-    gametypes = list(set((s.get("map") or "").split("_", 1)[0] for s in filtered))
-
-    if len(filtered) > 5:
-        server_info_list.append("...")
+    gametypes = list(set((s.get("map") or "unk").split("_", 1)[0] for s in filtered))
 
     p_plural = "" if total_players == 1 else "s"
     s_plural = "" if total_servers == 1 else "s"
 
     gametypes_suffix = ""
-    if len(server_info_list) > 0:
-        # gametypes_suffix = ",".join(server_info_list)
+    if len(gametypes) > 0:
         gametypes_suffix = ",".join(gametypes)
         gametypes_suffix = f": ({gametypes_suffix})"
 
@@ -127,8 +125,18 @@ def main():
         print("ERROR! rcon command not found, failing entirely!", file=sys.stderr)
         sys.exit(1)
 
-    print(f"=== Done.", file=sys.stderr)
 
+    if total_players > 0 and total_servers > 0:
+        now = int(time.time())
+        game_info = "|".join(maps_slash_playercounts)
+        csv_line = f"{now},{total_servers},{total_players},{game_info}\n"
+        print(f"Logging csv: {csv_line.strip()}", file=sys.stderr)
+        with open(INFO_FILE, "a", encoding="utf-8") as f:
+            f.write(csv_line)
+    else:
+        print(f"No players, not logging.", file=sys.stderr)
+
+    print(f"=== Done.", file=sys.stderr)
 
 # Using systemd to loop instead
 def _loop():
@@ -146,5 +154,5 @@ def _loop():
 
 
 if __name__ == "__main__":
-    #_loop()
+    # _loop()
     main()
