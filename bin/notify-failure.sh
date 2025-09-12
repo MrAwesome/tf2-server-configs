@@ -1,8 +1,13 @@
 #!/bin/bash
 UNIT="$1"
 TO="root@localhost"
-if [[ -f "$HOME"/.tf2_admin_email ]]; then
-    TO="$(cat "$HOME"/.tf2_admin_email)"
+if [[ -d "$HOME" ]]; then
+    homedir="$HOME"
+else
+    homedir="/root"
+fi
+if [[ -f "$homedir"/.tf2_admin_email ]]; then
+    TO="$(cat "$homedir"/.tf2_admin_email)"
 fi
 SUBJ="ALERT: $UNIT exceeded failure threshold"
 BODY=$(printf "Unit: %s\n\nStatus:\n%s\n\nRecent journal:\n%s\n" \
