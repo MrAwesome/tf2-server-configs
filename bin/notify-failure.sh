@@ -10,4 +10,6 @@ BODY=$(printf "Unit: %s\n\nStatus:\n%s\n\nRecent journal:\n%s\n" \
   "$(systemctl status --no-pager "$UNIT")" \
   "$(journalctl -u "$UNIT" -n 200 --no-pager)")
 
+echo "Sent email to $TO with subject: '$SUBJ'"
+
 printf '%s\n' "$BODY" | /usr/bin/mail -s "$SUBJ" "$TO"
