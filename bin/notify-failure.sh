@@ -1,20 +1,23 @@
 #!/bin/bash
-UNIT="$1"
-TO="root@localhost"
+
+set -euxo pipefail
+
+unit="${1:-unknown}"
+to="root@localhost"
 if [[ -d "$HOME" ]]; then
     homedir="$HOME"
 else
     homedir="/root"
 fi
 if [[ -f "$homedir"/.tf2_admin_email ]]; then
-    TO="$(cat "$homedir"/.tf2_admin_email)"
+    to="$(cat "$homedir"/.tf2_admin_email)"
 fi
-SUBJ="ALERT: $UNIT exceeded failure threshold"
-BODY=$(printf "Unit: %s\n\nStatus:\n%s\n\nRecent journal:\n%s\n" \
-  "$UNIT" \
-  "$(systemctl status --no-pager "$UNIT")" \
-  "$(journalctl -u "$UNIT" -n 200 --no-pager)")
+subj="ALERT: $unit exceeded failure threshold"
+body=$(printf "Unit: %s\n\nStatus:\n%s\n\nRecent journal:\n%s\n" \
+  "$unit" \
+  "$(systemctl status --no-pager "$unit")" \
+  "$(journalctl -u "$unit" -n 200 --no-pager)")
 
-echo "Sent email to $TO with subject: '$SUBJ'"
+echo "Sent email to $to with subject: '$subj'"
 
-printf '%s\n' "$BODY" | /usr/bin/mail -s "$SUBJ" "$TO"
+printf '%s\n' "$body" | /usr/bin/mail -s "$subj" "$to"

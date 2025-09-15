@@ -1,0 +1,11 @@
+[Unit]
+Description=TF2 daily server restart (2fort)
+
+[Timer]
+OnCalendar=*-*-* 07:00:00 UTC
+OnBootSec=1h
+Persistent=true
+Unit=tf2-dedicated@tf2-2fort.service
+
+[Install]
+WantedBy=timers.target
