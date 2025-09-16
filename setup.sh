@@ -22,8 +22,8 @@ pushd systemd
 
 systemctl enable --now tf2-fastdl.service
 for timer in *.timer; do
-    # NOTE: you may need to --now or start these as well, but at least once that caused an instant server restart so double-check that in the future and verify with list-timers that these are actually running
-	systemctl enable "$timer"
+    # NOTE: this will not start/restart the servers, you will want to manually start tf2-dedicated@<servername> for each of them the first time
+	systemctl enable --now "$timer"
 done
 
 popd
