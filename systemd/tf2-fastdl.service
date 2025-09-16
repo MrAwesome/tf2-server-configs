@@ -1,6 +1,7 @@
 [Unit]
 Description=FastDL for TF2
 After=network.target
+OnFailure=notify-failure@%n.service
 
 [Service]
 Type=simple
