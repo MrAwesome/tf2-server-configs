@@ -21,6 +21,7 @@ systemctl daemon-reload
 pushd systemd
 
 systemctl enable --now tf2-fastdl.service
+systemctl enable --now focalboard.service
 for timer in *.timer; do
     # NOTE: this will not start/restart the servers, you will want to manually start tf2-dedicated@<servername> for each of them the first time
 	systemctl enable --now "$timer"

@@ -1,0 +1,22 @@
+# Not actually a tf2 thing, but I am using this on the same server so why not
+[Unit]
+Description=Focalboard
+After=network.target
+OnFailure=notify-failure@%n.service
+
+[Service]
+Type=simple
+WorkingDirectory=/srv/focalboard/
+ExecStart=/srv/focalboard/bin/focalboard-server
+User=www-data
+Group=www-data
+ProtectSystem=full
+ProtectHome=true
+NoNewPrivileges=true
+PrivateTmp=true
+PrivateDevices=true
+CapabilityBoundingSet=
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
