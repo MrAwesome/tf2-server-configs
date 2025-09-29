@@ -2,7 +2,7 @@
 Description=TF2 daily server restart (dodgeball)
 
 [Timer]
-OnCalendar=*-*-* 04:00:00 UTC
+OnCalendar=*-*-* 06:00:00 Africa/Johannesburg
 OnBootSec=5min
 Persistent=true
 Unit=tf2-dedicated@tf2-dodgeball.service

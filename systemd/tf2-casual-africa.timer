@@ -4,21 +4,21 @@ Description=Timer: TF2 Valve Causual Africa Notifier (5m during peak, 20m otherw
 [Timer]
 # Peak (every 5 minutes):
 # Weekdays 15:00–23:59
-OnCalendar=Mon..Fri 15..23:0/5
+OnCalendar=Mon..Fri 15..23:0/5 Africa/Johannesburg
 # Weekends 11:00–23:59
-OnCalendar=Sat,Sun 11..23:0/5
+OnCalendar=Sat,Sun 11..23:0/5 Africa/Johannesburg
 # Weekend carry-over to 03:00 next day (Sun and Mon 00:00–02:59)
-OnCalendar=Sun,Mon 0..2:0/5
+OnCalendar=Sun,Mon 0..2:0/5 Africa/Johannesburg
 
 # Off-peak (every 20 minutes):
 # Monday 03:00–14:59
-OnCalendar=Mon 3..14:0/20
+OnCalendar=Mon 3..14:0/20 Africa/Johannesburg
 # Tuesday–Friday 00:00–14:59
-OnCalendar=Tue..Fri 0..14:0/20
+OnCalendar=Tue..Fri 0..14:0/20 Africa/Johannesburg
 # Saturday 00:00–10:59
-OnCalendar=Sat 0..10:0/20
+OnCalendar=Sat 0..10:0/20 Africa/Johannesburg
 # Sunday 03:00–10:59
-OnCalendar=Sun 3..10:0/20
+OnCalendar=Sun 3..10:0/20 Africa/Johannesburg
 
 Persistent=true
 AccuracySec=1s
