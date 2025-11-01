@@ -13,7 +13,7 @@ if [[ -z "$servername" ]]; then
 else
 	docker stop "$servername"
 	docker remove "$servername"
-    steamapps="${HOME}/servers/${servername}/steamapps/"
+    steamapps="/root/servers/${servername}/steamapps/"
     [[ -d "$steamapps" ]] && rm -rf "$steamapps"
 	/root/bin/run_server.sh "$servername"
 fi
