@@ -11,8 +11,8 @@ if [[ -z "$servername" ]]; then
 	docker-compose down
 	/root/bin/run_server.sh 
 else
-	docker stop "$servername"
-	docker remove "$servername"
+	docker stop "$servername" || true
+	docker remove "$servername" || true
     steamapps="/root/servers/${servername}/steamapps/"
     [[ -d "$steamapps" ]] && rm -rf "$steamapps"
 	/root/bin/run_server.sh "$servername"
