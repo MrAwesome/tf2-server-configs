@@ -1,0 +1,6 @@
+[Unit]
+Description=Notify when absent from Steam
+
+[Service]
+Type=oneshot
+ExecStart=/root/bin/notify-absent-from-steam.sh

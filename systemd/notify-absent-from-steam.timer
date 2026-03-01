@@ -1,0 +1,9 @@
+[Unit]
+Description=Timer: Notify when absent from Steam (daily at 12:00 SAST)
+
+[Timer]
+OnCalendar=*-*-* 12:00:00 Africa/Johannesburg
+Persistent=true
+
+[Install]
+WantedBy=timers.target
