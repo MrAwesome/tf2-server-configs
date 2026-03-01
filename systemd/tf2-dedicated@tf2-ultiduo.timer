@@ -5,7 +5,7 @@ Description=TF2 daily server restart (2fort)
 OnCalendar=*-*-* 04:00:00 Africa/Johannesburg
 OnBootSec=4h
 Persistent=true
-Unit=tf2-dedicated@ultiduo.service
+Unit=tf2-dedicated@tf2-ultiduo.service
 
 [Install]
 WantedBy=timers.target
