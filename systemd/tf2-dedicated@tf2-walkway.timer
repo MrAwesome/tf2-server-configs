@@ -2,7 +2,7 @@
 Description=TF2 daily server restart (walkway)
 
 [Timer]
-OnCalendar=*-*-* 05:00:00 Africa/Johannesburg
+OnCalendar=*-*-* 04:45:00 Africa/Johannesburg
 OnBootSec=1h
 Persistent=true
 Unit=tf2-dedicated@tf2-walkway.service
