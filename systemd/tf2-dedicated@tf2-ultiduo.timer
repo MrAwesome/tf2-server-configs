@@ -3,7 +3,7 @@ Description=TF2 daily server restart (2fort)
 
 [Timer]
 OnCalendar=*-*-* 04:00:00 Africa/Johannesburg
-OnBootSec=4h
+OnBootSec=3h50min
 Persistent=true
 Unit=tf2-dedicated@tf2-ultiduo.service
 

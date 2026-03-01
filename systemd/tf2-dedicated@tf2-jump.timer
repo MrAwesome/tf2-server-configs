@@ -1,11 +1,11 @@
 [Unit]
-Description=TF2 daily server restart (community)
+Description=TF2 daily server restart (jump)
 
 [Timer]
 OnCalendar=*-*-* 05:30:00 Africa/Johannesburg
-OnBootSec=2h
+OnBootSec=2h20min
 Persistent=true
-Unit=tf2-dedicated@tf2-community.service
+Unit=tf2-dedicated@tf2-jump.service
 
 [Install]
 WantedBy=timers.target
