@@ -3,7 +3,7 @@ Description=Periodically update TF2 community server list on Discord
 
 [Timer]
 OnBootSec=30
-OnUnitActiveSec=5min
+OnUnitActiveSec=2min
 
 [Install]
 WantedBy=timers.target
