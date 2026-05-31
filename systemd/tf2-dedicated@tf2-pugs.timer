@@ -1,0 +1,11 @@
+[Unit]
+Description=TF2 daily server restart (pugs)
+
+[Timer]
+OnCalendar=*-*-* 08:30:00 Africa/Johannesburg
+OnBootSec=3h50min
+Persistent=true
+Unit=tf2-dedicated@tf2-pugs.service
+
+[Install]
+WantedBy=timers.target
