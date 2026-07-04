@@ -1,0 +1,6 @@
+[Unit]
+Description=Delete TF2 demo files older than 7 days
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/find /root/servers/*/tf/ -name "*.dem" -type f -mtime +7 -delete
