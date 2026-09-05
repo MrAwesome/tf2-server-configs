@@ -12,7 +12,7 @@ if [[ -z "$servername" ]]; then
 	/root/bin/run_server.sh 
 else
 	docker stop "$servername" || true
-	docker remove "$servername" || true
+	docker rm "$servername" || true
     steamapps="/root/servers/${servername}/steamapps/"
     [[ -d "$steamapps" ]] && rm -rf "$steamapps"
 	/root/bin/run_server.sh "$servername"
