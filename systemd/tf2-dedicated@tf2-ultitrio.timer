@@ -1,11 +1,11 @@
 [Unit]
-Description=TF2 daily server restart (pugs)
+Description=TF2 daily server restart (ultitrio)
 
 [Timer]
 OnCalendar=*-*-* 08:30:00 Africa/Johannesburg
 OnBootSec=3h50min
 Persistent=true
-Unit=tf2-dedicated@tf2-pugs.service
+Unit=tf2-dedicated@tf2-ultitrio.service
 
 [Install]
 WantedBy=timers.target
