@@ -2,7 +2,7 @@
 Description=TF2 daily server restart (community)
 
 [Timer]
-OnCalendar=*-*-* 07:00:00 Africa/Johannesburg
+OnCalendar=*-*-* 06:20:00 Africa/Johannesburg
 OnBootSec=5min
 Persistent=true
 Unit=tf2-dedicated@tf2-community.service

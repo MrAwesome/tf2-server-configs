@@ -1,0 +1,11 @@
+[Unit]
+Description=TF2 daily server restart (mgebot)
+
+[Timer]
+OnCalendar=*-*-* 06:55:00 Africa/Johannesburg
+OnBootSec=3h
+Persistent=true
+Unit=tf2-dedicated@tf2-mgebot.service
+
+[Install]
+WantedBy=timers.target

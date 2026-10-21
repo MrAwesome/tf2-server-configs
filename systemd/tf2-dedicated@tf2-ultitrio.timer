@@ -2,8 +2,8 @@
 Description=TF2 daily server restart (ultitrio)
 
 [Timer]
-OnCalendar=*-*-* 08:30:00 Africa/Johannesburg
-OnBootSec=3h50min
+OnCalendar=*-*-* 07:30:00 Africa/Johannesburg
+OnBootSec=3h35min
 Persistent=true
 Unit=tf2-dedicated@tf2-ultitrio.service
 

@@ -2,8 +2,8 @@
 Description=TF2 daily server restart (jump)
 
 [Timer]
-OnCalendar=*-*-* 05:30:00 Africa/Johannesburg
-OnBootSec=2h20min
+OnCalendar=*-*-* 05:10:00 Africa/Johannesburg
+OnBootSec=1h50min
 Persistent=true
 Unit=tf2-dedicated@tf2-jump.service
 

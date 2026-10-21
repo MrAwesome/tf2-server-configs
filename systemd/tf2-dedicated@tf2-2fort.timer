@@ -2,8 +2,8 @@
 Description=TF2 daily server restart (2fort)
 
 [Timer]
-OnCalendar=*-*-* 07:45:00 Africa/Johannesburg
-OnBootSec=3h5min
+OnCalendar=*-*-* 08:05:00 Africa/Johannesburg
+OnBootSec=4h10min
 Persistent=true
 Unit=tf2-dedicated@tf2-2fort.service
 
